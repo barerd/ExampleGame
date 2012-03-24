@@ -2,8 +2,8 @@ class Game
   attr_accessor :armor_list, :weapon_list, :equipment
   def initialize()
     #Game creates the city and mountain as two separate scenes
-    @city = Scene.new("City", "The city of Casablanca is the most beautiful city in the world, but it's cursed with a dragon!", @cm, @ls, "", self)
-    @mountain = Scene.new("Mountain", "These cavernous mountains of Casablanca behold the most fearsome creature ever seen... The Dragon of Casablanca!", @em, @wh, @d, self)
+    @city = Scene.new("City", "The city.", @cm, @ls, "", self)
+    @mountain = Scene.new("Mountain", "The mountain.", @em, @wh, @d, self)
     #Game creates armor and weapon array-name-holders, I couldn't find another way to make the equipment-selection work
     @a = Armor.new("armor_list", 0)
     @w = Weapon.new("weapon_list", 0)
@@ -29,7 +29,8 @@ class Game
   def play()
     intro()
   end
-  # If I can find a way to pass arguments between scenes and game, I'm going to put a variable to change the starting point. Otherwise I know that both intro() and play() is useless.
+  # If I can find a way to pass arguments between scenes and game, I'm going to put a variable 
+  # to change the starting point. Otherwise I know that both intro() and play() is useless.
   def intro()
     @city.intro()
   end
@@ -161,7 +162,11 @@ class Armor
   end
 end
 
-#I want each scene have its own weapon or armor (scattered on the ground, maybe, according to the story..) but cannot achieve that with armors, weapon variables. The same thing applies to monsters. I would like to have for example rats and thieves in the city, but bats and a dragon in the mountain. However couldn't achieve it exactly. So far I'm only successful in passing the game object to the scene object as the last variable and I think that's a good start.
+# I want each scene have its own weapon or armor (scattered on the ground, maybe, according to the story..)
+# but cannot achieve that with armors, weapon variables. The same thing applies to monsters. I would like
+# to have for example rats and thieves in the city, but bats and a dragon in the mountain. However couldn't 
+# achieve this exactly. So far I'm only successful in passing the game object to the scene object as the 
+# last variable and I think that's a good start.
 class Scene
   attr_reader :name, :history, :armors, :weapons, :monsters
   def initialize(name, history, armor_list, weapon_list, monsters, game)
@@ -188,7 +193,11 @@ class Scene
     4. Go to another place!
     CHOICES
     choice = gets.chomp
-    #this is where things go really bad! instance_variable_get saves the battle but as for the equipment selection, as soon as I make a choice, it throws a "game.rb:193:in 'choices': #<Armor:0x429720 @name="....> is not a symbol (TypeError)" error and I don't think that further addition of : or @ is needed here. The solution should be much simpler but couldn't find it on the web.
+    #this is where things go really bad! instance_variable_get saves the battle but as for the equipment selection,
+    # as soon as I make a choice, it throws this error:
+    # "game.rb:193:in 'choices': #<Armor:0x429720 @name="....> is not a symbol (TypeError)" 
+    # and I don't think that further addition of : or @ is needed here.
+    #The solution should be much simpler but couldn't find it on the web.
     if choice == "1"
       @game.send(@game.instance_variable_get(:@h).select_equipment(@game.instance_variable_get(:@armor_list)))
     elsif choice == "2"
