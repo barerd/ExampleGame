@@ -1,0 +1,21 @@
+The only aim here is to learn how to make use of classes. The whole game is an exercise (http://ruby.learncodethehardway.org/book/ex43.html).
+
+The game has 5 classes: Game, Creature, Weapon, Armor, Scene.
+
+Creature class is used to produce the hero and several monsters (currently only a dragon is created).
+
+Weapon and armor classes (with only name and power attributes) are there to produce equipment and while they may be joined as a single Equipment class with name, defense and attack attributes, currently this is not my concern.
+
+Scene class is there to produce several places/rooms, which is the main point of the exercise. The exercise clearly states "Use one class per room and give the classes names that fit their purpose." Therefore I made a class containing name, history and armor/weapon and monster attributes. The reason for name and history are clearly to be able to give an introduction when the player enters the scene.
+
+The armor/weapon and monster attributes are required to make the player to encounter different armors, weapons to equip and different monsters to fight in different scenes. I tried to pass them as variables (arrays) to the scene class during initialize but couldn't succeed. The roots of this failure probably is the reason why I can't make the two classes work together.
+
+I have to admit that I had a hard time to understand how to pass variables to/between methods in ruby, and this curse is following me in the classes, too.
+
+So, as a last thing, you can see the horrible code in the choices method in Scene class. I cannot exactly explain what I was thinking while coding this. But the only good thing I have done is adding "self" to the @city = Scene.new step of the Game.initialize(), so that I can pass the game object to the city object. After that I got lost and need your help.
+
+Whatever you do after that, thank you for reading this far.
+
+Basar Erdivanli, MD
+
+Note: MD solely sits there to make it clear that I am not a programming student. I don't know C or java... 
