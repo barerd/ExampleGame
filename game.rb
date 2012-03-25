@@ -205,7 +205,7 @@ class Scene
     elsif choice == "3"
       @game.send(@game.instance_variable_get(:@h).battle(@game.instance_variable_get(:@h), @game.instance_variable_get(:@d)))
     elsif choice == "4"
-      puts "bad choice!"
+      puts "bad choice, since I am not ready yet!"
     else
       puts "Can't you read?"
     end
