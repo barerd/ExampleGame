@@ -1,3 +1,5 @@
+UPDATE: As explained below, this code is buggy. The file is here as an example to be illustrated in StackExchange.com and was discussed in (http://codereview.stackexchange.com/q/10312/12116). The discussion in the CodeReview is advised to everyone watching/forking this repository.
+
 The only aim here is to learn how to make use of classes. The whole game is an exercise (http://ruby.learncodethehardway.org/book/ex43.html).
 
 The game has 5 classes: Game, Creature, Weapon, Armor, Scene.
